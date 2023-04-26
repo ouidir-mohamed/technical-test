@@ -28,6 +28,7 @@ public class UserController {
 
     @PostMapping("/")
     public User addUser(@RequestBody User user) {
+        if(userService.getUserByUserName(user.getUserName()).isPresent()) throw  new UserNameAlreadyExistsException();
         if(!user.getCountryOfResidence().getCode().equals("FR")) throw new CountryNotAllowedException();
         if(DateTimeHelper.yearsFrom(user.getBirthDate())<18) throw new AgeNotAllowedException();
        if(user.getPhoneNumber()!=null) if(!Validator.idPhoneValid(user.getPhoneNumber())) throw new PhoneNotValidException();
@@ -43,6 +44,9 @@ public class UserController {
     }
 }
 
+
+@ResponseStatus(value= HttpStatus.FORBIDDEN, reason="Username already exists")
+class UserNameAlreadyExistsException extends RuntimeException { }
 
 @ResponseStatus(value= HttpStatus.FORBIDDEN, reason="Not allowed Country")
  class CountryNotAllowedException extends RuntimeException { }
