@@ -8,8 +8,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import java.sql.Date;
 
-@SpringBootTest
-public class DateTimeHelperTests {
+public class DateTimeHelperTest {
     @Test
     public void yearsFromTest() {
         Assert.assertEquals(20, DateTimeHelper.yearsFrom(Date.valueOf("2003-02-11")));
