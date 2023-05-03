@@ -1,3 +1,4 @@
+DELETE FROM Country where 1;
 INSERT INTO Country (name, code) VALUES ('Afghanistan', 'AF');
 INSERT INTO Country (name, code) VALUES ('Åland Islands', 'AX');
 INSERT INTO Country (name, code) VALUES ('Albania', 'AL');
