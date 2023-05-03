@@ -5,6 +5,15 @@ This is s Spring boot project that exposes 3 services:
 - one that displays the details of a registered user.
 - one that displays all countries with their codes.
 
+
+## Table of Contents
+
+- [Build](#Build)
+- [Run](#Run)
+- [Running Tests](#Running Tests)
+- [Endpoints](#Endpoints)
+
+
 ## Build
 
 To build this project from source, you will need to have the following installed on your machine:
@@ -28,3 +37,120 @@ To run the application, follow these steps:
 2. Run the WAR file: `java -jar technicaltest-0.0.1-SNAPSHOT.war`
 
 This will start the Spring Boot application and you should see the application output in the console.
+
+
+## Running Tests
+To run tests for this project, execute the following command in your terminal: `mvn test`
+
+
+## Endpoints
+
+### `GET /api/countries/`
+
+Returns a list of all countries with their codes
+
+#### Parameters
+None
+#### Response
+
+```json
+
+[
+    {
+        "code": "AF",
+        "name": "Afghanistan"
+    },
+    
+    {
+        "code": "AL",
+        "name": "Albania"
+    },
+    
+    {
+        "code": "DZ",
+        "name": "Algeria"
+    },
+    
+    {
+        "code": "AS",
+        "name": "American Samoa"
+    }
+   
+]
+
+```
+
+### `POST /api/users/`
+
+Registers a new user
+
+#### Parameters
+
+| Name | Type | Description 
+| -------- | ---------- | ------------
+| userName | string | The user name. |
+| countryOfResidence | Country | The user's country of residence. |
+| birthDate | date | The user's birth date with "YYYY-MM-DD" format . |
+| phoneNumber | string | The user's phone number (Optional) . |
+| gender | enum |  the user's gender MALE or FEMALE . |
+
+#### Request Body
+
+``` json
+{
+    "userName": "mohamed01",
+    "birthDate": "2004-02-09",
+    "countryOfResidence": {
+        "code": "FR",
+        "name": "France"
+    },
+    "phoneNumber": "0606060606",
+    "gender": "MALE"
+}
+
+```
+
+#### Response
+
+``` json
+{
+    "userName": "mohamed01",
+    "birthDate": "2004-02-09",
+    "countryOfResidence": {
+        "code": "FR",
+        "name": "France"
+    },
+    "phoneNumber": "0606060606",
+    "gender": "MALE"
+}
+
+```
+
+
+### `GET /api/users/{userName}/`
+
+Returns the user with the specified userName.
+
+#### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| userName | string | The userName of the user to retrieve. |
+
+
+#### Response
+
+```json
+
+{
+  "userName": "mohamed01",
+  "birthDate": "2004-02-09",
+  "countryOfResidence": {
+    "code": "FR",
+    "name": "France"
+  },
+  "phoneNumber": "0606060606",
+  "gender": "MALE"
+}
+
+```
