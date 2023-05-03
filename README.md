@@ -10,7 +10,7 @@ This is s Spring boot project that exposes 3 services:
 
 - [Build](#Build)
 - [Run](#Run)
-- [Running Tests](#Running Tests)
+- [Running Tests](#Running-Tests)
 - [Endpoints](#Endpoints)
 
 
