@@ -36,7 +36,7 @@ To run the application, follow these steps:
 1. Navigate to the `target` directory: `cd target`
 2. Run the WAR file: `java -jar technicaltest-0.0.1-SNAPSHOT.war`
 
-This will start the Spring Boot application and you should see the application output in the console.
+This will start the server on the port 8080 and you should see the application output in the console.
 
 
 ## Running Tests
