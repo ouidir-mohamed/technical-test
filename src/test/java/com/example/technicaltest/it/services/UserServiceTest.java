@@ -25,12 +25,14 @@ public class UserServiceTest {
 
     @Autowired // let Spring instantiate the instance to test
     private UserService userService;
+    @Autowired
+    private RandomGenerator randomGenerator;
 
     @Test
     public void userServiceTest() {
 
         // add new user test
-        String userName = RandomGenerator.getRandomString();
+        String userName = randomGenerator.getRandomString();
         User userData = new User(userName, Date.valueOf("2002-10-13"), new Country("FR", "France"), null, null);
         User result = userService.addUser(userData);
         assertEquals(result, userData);

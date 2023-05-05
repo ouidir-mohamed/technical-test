@@ -1,15 +1,16 @@
 package com.example.technicaltest.utils;
 
-import java.util.Random;
+import org.springframework.stereotype.Component;
 
+import java.util.Random;
+@Component
 public class RandomGenerator {
 
-
-    public static String getRandomString() {
+    public  String getRandomString() {
         return getRandomString(24);
     }
 
-    public static String getRandomString(int length) {
+    public  String getRandomString(int length) {
         return new Random().ints(97, 123)
                 .limit(length)
                 .collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)

@@ -19,8 +19,8 @@ public class UserService {
 
     public User addUser(User user) {
         if (userRepository.findById(user.getUserName()).isPresent()) throw new UserNameAlreadyExistsException();
-        if (!user.getCountryOfResidence().getCode().equals("FR")) throw new CountryNotAllowedException();
-        if (DateTimeHelper.yearsFrom(user.getBirthDate()) < 18) throw new AgeNotAllowedException();
+        if (!validator.isCountryAllowed(user.getCountryOfResidence().getCode())) throw new CountryNotAllowedException();
+        if (!validator.isAdult(user.getBirthDate())) throw new AgeNotAllowedException();
         if (user.getPhoneNumber() != null)
             if (!validator.isPhoneValid(user.getPhoneNumber())) throw new PhoneNotValidException();
         return userRepository.save(user);
