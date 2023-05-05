@@ -14,13 +14,15 @@ import java.util.Optional;
 public class UserService {
     @Autowired
     UserRepository userRepository;
+    @Autowired
+    Validator validator;
 
     public User addUser(User user) {
         if (userRepository.findById(user.getUserName()).isPresent()) throw new UserNameAlreadyExistsException();
         if (!user.getCountryOfResidence().getCode().equals("FR")) throw new CountryNotAllowedException();
         if (DateTimeHelper.yearsFrom(user.getBirthDate()) < 18) throw new AgeNotAllowedException();
         if (user.getPhoneNumber() != null)
-            if (!Validator.idPhoneValid(user.getPhoneNumber())) throw new PhoneNotValidException();
+            if (!validator.isPhoneValid(user.getPhoneNumber())) throw new PhoneNotValidException();
         return userRepository.save(user);
     }
 
