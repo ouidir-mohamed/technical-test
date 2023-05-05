@@ -3,7 +3,6 @@ package com.example.technicaltest.services;
 import com.example.technicaltest.entities.User;
 import com.example.technicaltest.exceptions.*;
 import com.example.technicaltest.repositories.UserRepository;
-import com.example.technicaltest.utils.DateTimeHelper;
 import com.example.technicaltest.utils.Validator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

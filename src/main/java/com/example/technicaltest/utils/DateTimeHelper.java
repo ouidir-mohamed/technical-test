@@ -7,7 +7,7 @@ import java.util.concurrent.TimeUnit;
 
 @Component
 public class DateTimeHelper {
-    public  long yearsFrom(Date date) {
+    public long yearsFrom(Date date) {
         Date today = new Date();
         long diffInMillies = today.getTime() - date.getTime();
 

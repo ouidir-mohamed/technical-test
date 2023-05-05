@@ -12,7 +12,6 @@ import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.sql.Date;
-import java.util.Optional;
 
 import static org.junit.Assert.assertEquals;
 
