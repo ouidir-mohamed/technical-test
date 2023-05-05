@@ -1,5 +1,6 @@
 package com.example.technicaltest.utils;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.sql.Date;
@@ -7,13 +8,15 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 @Component
 public class Validator {
+    @Autowired
+    private DateTimeHelper dateTimeHelper;
 
     public boolean isCountryAllowed(String countryCode){
         return countryCode.equals("FR");
     }
 
     public boolean isAdult(Date birthDate){
-        return DateTimeHelper.yearsFrom(birthDate) >= 18;
+        return dateTimeHelper.yearsFrom(birthDate) >= 18;
     }
 
     public  boolean isPhoneValid(String phone) {
