@@ -1,7 +1,10 @@
 package com.example.technicaltest.services;
 
 import com.example.technicaltest.entities.User;
+import com.example.technicaltest.exceptions.*;
 import com.example.technicaltest.repositories.UserRepository;
+import com.example.technicaltest.utils.DateTimeHelper;
+import com.example.technicaltest.utils.Validator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,11 +16,18 @@ public class UserService {
     UserRepository userRepository;
 
     public User addUser(User user) {
+        if (userRepository.findById(user.getUserName()).isPresent()) throw new UserNameAlreadyExistsException();
+        if (!user.getCountryOfResidence().getCode().equals("FR")) throw new CountryNotAllowedException();
+        if (DateTimeHelper.yearsFrom(user.getBirthDate()) < 18) throw new AgeNotAllowedException();
+        if (user.getPhoneNumber() != null)
+            if (!Validator.idPhoneValid(user.getPhoneNumber())) throw new PhoneNotValidException();
         return userRepository.save(user);
     }
 
-    public Optional<User> getUserByUserName(String userName) {
-        return userRepository.findById(userName);
+    public User getUserByUserName(String userName) {
+        Optional<User> user = userRepository.findById(userName);
+        if (!user.isPresent()) throw new UserNotFoundException();
+        return user.get();
     }
 }
 

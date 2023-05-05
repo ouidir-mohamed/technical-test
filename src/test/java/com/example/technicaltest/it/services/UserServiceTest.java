@@ -3,6 +3,7 @@ package com.example.technicaltest.it.services;
 import com.example.technicaltest.entities.Country;
 import com.example.technicaltest.entities.User;
 import com.example.technicaltest.services.UserService;
+import com.example.technicaltest.utils.RandomGenerator;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,16 +30,15 @@ public class UserServiceTest {
     public void userServiceTest() {
 
         // add new user test
-
-        String userName = "user name 1";
+        String userName = RandomGenerator.getRandomString();
         User userData = new User(userName, Date.valueOf("2002-10-13"), new Country("FR", "France"), null, null);
         User result = userService.addUser(userData);
         assertEquals(result, userData);
 
         // get user test
 
-        Optional<User> userFound = userService.getUserByUserName(userName);
-        assertEquals(userFound.get(), userData);
+        User userFound = userService.getUserByUserName(userName);
+        assertEquals(userFound, userData);
 
     }
 }
