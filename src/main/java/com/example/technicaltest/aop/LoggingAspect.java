@@ -33,8 +33,8 @@ public class LoggingAspect {
 
         LOGGER.info(
                 "Method name: "
-               + methodSignature.getDeclaringType().getSimpleName() // Class Name
-                + "." + methodSignature.getName() + " " // Method Name
+                        + methodSignature.getDeclaringType().getSimpleName() // Class Name
+                        + "." + methodSignature.getName() + " " // Method Name
 
 
         );
@@ -43,32 +43,32 @@ public class LoggingAspect {
         //Log method execution time
 
         LOGGER.info(
-                 "Execution time: " + stopWatch.getTotalTimeMillis() + " ms "
+                "Execution time: " + stopWatch.getTotalTimeMillis() + " ms "
         );
 
         // Log method inputs
 
-        String[] parameterNames=methodSignature.getParameterNames();
-        Class[] parameterTypes=methodSignature.getParameterTypes();
-        Object[] parameterValues=proceedingJoinPoint.getArgs();
+        String[] parameterNames = methodSignature.getParameterNames();
+        Class[] parameterTypes = methodSignature.getParameterTypes();
+        Object[] parameterValues = proceedingJoinPoint.getArgs();
 
         LOGGER.info("Inputs: ");
-        for (int i=0;i<parameterNames.length;i++){
+        for (int i = 0; i < parameterNames.length; i++) {
             LOGGER.info(
-                "name: "+ parameterNames[i]
-                + " ,type: "+ parameterTypes[i].getTypeName()
-                + " ,value: " + parameterValues[i]
+                    "name: " + parameterNames[i]
+                            + " ,type: " + parameterTypes[i].getTypeName()
+                            + " ,value: " + parameterValues[i]
             );
         }
 
         // Log method output
 
-        Object returnType=methodSignature.getReturnType().getTypeName();
+        Object returnType = methodSignature.getReturnType().getTypeName();
 
         LOGGER.info("Output: ");
         LOGGER.info(
                 "type: " + returnType
-                +" ,value: "+result
+                        + " ,value: " + result
         );
 
         return result;

@@ -1,10 +1,8 @@
 package com.example.technicaltest.ut;
 
 import com.example.technicaltest.utils.DateTimeHelper;
-import com.example.technicaltest.utils.Validator;
 import org.junit.Assert;
 import org.junit.Test;
-import org.springframework.boot.test.context.SpringBootTest;
 
 import java.sql.Date;
 
