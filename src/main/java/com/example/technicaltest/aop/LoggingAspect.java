@@ -15,6 +15,10 @@ import org.springframework.util.StopWatch;
 public class LoggingAspect {
     private static final Logger LOGGER = LogManager.getLogger(LoggingAspect.class);
 
+    /**
+     * The AOP logging handler.
+     * It logs inputs and outputs for each methode call as well as the processing time.
+     */
     @Around("execution(* com.example..*(..)))")
     public Object logMethodDetails(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
         MethodSignature methodSignature = (MethodSignature) proceedingJoinPoint.getSignature();

@@ -12,6 +12,11 @@ public class CountryService {
     @Autowired
     CountryRepository countryRepository;
 
+    /**
+     * Fetches all countries from country repository.
+     *
+     * @return The list of all countries.
+     */
     public List<Country> getAllCountries() {
         return countryRepository.findAll();
     }

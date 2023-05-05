@@ -15,6 +15,11 @@ public class CountryController {
     @Autowired
     CountryService countryService;
 
+    /**
+     * Called when the endpoint "/countries/" is called.
+     *
+     * @return Returns the list of all countries.
+     */
     @GetMapping("/")
     public List<Country> getAllCountries() {
         return countryService.getAllCountries();

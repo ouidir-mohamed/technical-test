@@ -16,6 +16,12 @@ public class UserService {
     @Autowired
     Validator validator;
 
+    /**
+     * Validates and Registers a new user.
+     *
+     * @param user The User to be registered.
+     * @return The registered user.
+     */
     public User addUser(User user) {
         if (userRepository.findById(user.getUserName()).isPresent()) throw new UserNameAlreadyExistsException();
         if (!validator.isCountryAllowed(user.getCountryOfResidence().getCode())) throw new CountryNotAllowedException();
@@ -25,6 +31,12 @@ public class UserService {
         return userRepository.save(user);
     }
 
+    /**
+     * Fetches a user by his username.
+     *
+     * @param userName The username.
+     * @return The user found.
+     */
     public User getUserByUserName(String userName) {
         Optional<User> user = userRepository.findById(userName);
         if (!user.isPresent()) throw new UserNotFoundException();
