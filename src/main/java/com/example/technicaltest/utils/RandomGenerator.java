@@ -16,5 +16,5 @@ public class RandomGenerator {
                 .collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
                 .toString();
     }
-
+    
 }

@@ -19,6 +19,5 @@ public class DateTimeHelperTest {
     public void yearsFromTest() {
         Assert.assertEquals(20, dateTimeHelper.yearsFrom(Date.valueOf("2003-02-11")));
         Assert.assertEquals(18, dateTimeHelper.yearsFrom(Date.valueOf("2005-04-17")));
-
     }
 }
