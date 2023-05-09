@@ -13,7 +13,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.sql.Date;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest
 @RunWith(SpringRunner.class)
@@ -25,29 +25,29 @@ public class UserMapperTest {
 
     @Test
     public void toUserDtoTest() {
-        String userName=randomGenerator.getRandomString();
-        UserEntity userEntity=new UserEntity(userName,Date.valueOf("1995-02-18"),"France","0605212121", Gender.MALE);
-       UserDto userDto= userMapper.toUserDto(userEntity);
+        String userName = randomGenerator.getRandomString();
+        UserEntity userEntity = new UserEntity(userName, Date.valueOf("1995-02-18"), "France", "0605212121", Gender.MALE);
+        UserDto userDto = userMapper.toUserDto(userEntity);
 
-        assertEquals(userDto.getUserName(),userEntity.getUserName());
-        assertEquals(userDto.getBirthDate(),userEntity.getBirthDate());
-        assertEquals(userDto.getCountryOfResidence(),userEntity.getCountryOfResidence());
-        assertEquals(userDto.getPhoneNumber(),userEntity.getPhoneNumber());
-        assertEquals(userDto.getGender(),userEntity.getGender());
+        assertEquals(userDto.getUserName(), userEntity.getUserName());
+        assertEquals(userDto.getBirthDate(), userEntity.getBirthDate());
+        assertEquals(userDto.getCountryOfResidence(), userEntity.getCountryOfResidence());
+        assertEquals(userDto.getPhoneNumber(), userEntity.getPhoneNumber());
+        assertEquals(userDto.getGender(), userEntity.getGender());
 
 
     }
 
     @Test
     public void toUserEntityTest() {
-        String userName=randomGenerator.getRandomString();
-        UserDto userDto=new UserDto(userName,Date.valueOf("1995-02-18"),"France","0605212121", Gender.MALE);
-        UserEntity userEntity= userMapper.toUserEntity(userDto);
+        String userName = randomGenerator.getRandomString();
+        UserDto userDto = new UserDto(userName, Date.valueOf("1995-02-18"), "France", "0605212121", Gender.MALE);
+        UserEntity userEntity = userMapper.toUserEntity(userDto);
 
-        assertEquals(userEntity.getUserName(),userDto.getUserName());
-        assertEquals(userEntity.getBirthDate(),userDto.getBirthDate());
-        assertEquals(userEntity.getCountryOfResidence(),userDto.getCountryOfResidence());
-        assertEquals(userEntity.getPhoneNumber(),userDto.getPhoneNumber());
-        assertEquals(userEntity.getGender(),userDto.getGender());
+        assertEquals(userEntity.getUserName(), userDto.getUserName());
+        assertEquals(userEntity.getBirthDate(), userDto.getBirthDate());
+        assertEquals(userEntity.getCountryOfResidence(), userDto.getCountryOfResidence());
+        assertEquals(userEntity.getPhoneNumber(), userDto.getPhoneNumber());
+        assertEquals(userEntity.getGender(), userDto.getGender());
     }
 }

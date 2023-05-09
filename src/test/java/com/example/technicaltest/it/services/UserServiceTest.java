@@ -1,7 +1,6 @@
 package com.example.technicaltest.it.services;
 
 import com.example.technicaltest.dto.UserDto;
-import com.example.technicaltest.entities.UserEntity;
 import com.example.technicaltest.services.UserService;
 import com.example.technicaltest.utils.RandomGenerator;
 import org.junit.Test;

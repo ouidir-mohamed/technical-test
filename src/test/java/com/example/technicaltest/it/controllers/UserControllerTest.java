@@ -39,22 +39,22 @@ public class UserControllerTest {
         expectUserAddSuccess(user1);
 
         // same userName
-        UserDto user2 = new UserDto(userName1, Date.valueOf("2002-12-05"),"France", null, null);
+        UserDto user2 = new UserDto(userName1, Date.valueOf("2002-12-05"), "France", null, null);
         expectUserAddFailure(user2);
 
         // a user with gender and valid phone
         String userName3 = randomGenerator.getRandomString();
-        UserDto user3 = new UserDto(userName3, Date.valueOf("2002-12-05"),"France", "0605123698", Gender.FEMALE);
+        UserDto user3 = new UserDto(userName3, Date.valueOf("2002-12-05"), "France", "0605123698", Gender.FEMALE);
         expectUserAddSuccess(user3);
 
         // a user with gender and invalid phone
         String userName4 = randomGenerator.getRandomString();
-        UserDto user4 = new UserDto(userName4, Date.valueOf("2002-12-05"),"France", "060512369899", Gender.MALE);
+        UserDto user4 = new UserDto(userName4, Date.valueOf("2002-12-05"), "France", "060512369899", Gender.MALE);
         expectUserAddFailure(user4);
 
         // a user outside France
         String userName5 = randomGenerator.getRandomString();
-        UserDto user5 = new UserDto(userName5, Date.valueOf("2002-12-05"),"Algeria", "0605123698", Gender.MALE);
+        UserDto user5 = new UserDto(userName5, Date.valueOf("2002-12-05"), "Algeria", "0605123698", Gender.MALE);
         expectUserAddFailure(user5);
 
 

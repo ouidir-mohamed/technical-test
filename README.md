@@ -1,9 +1,9 @@
 # Technical Test
 
 This is s Spring boot project that exposes 3 services:
+
 - one that allows to register a user.
 - one that displays the details of a registered user.
-
 
 ## Table of Contents
 
@@ -11,7 +11,6 @@ This is s Spring boot project that exposes 3 services:
 - [Run](#Run)
 - [Running Tests](#Running-Tests)
 - [Endpoints](#Endpoints)
-
 
 ## Build
 
@@ -37,13 +36,11 @@ To run the application, follow these steps:
 
 This will start the server on the port 8080 and you should see the application output in the console.
 
-
 ## Running Tests
+
 To run tests for this project, execute the following command in your terminal: `mvn test`
 
-
 ## Endpoints
-
 
 ### `POST /api/users/`
 
@@ -51,7 +48,7 @@ Registers a new user
 
 #### Parameters
 
-| Name | Type | Description 
+| Name | Type | Description
 | -------- | ---------- | ------------
 | userName | string | The user name. |
 | countryOfResidence | String | The user's country of residence. |
@@ -91,7 +88,6 @@ Registers a new user
 
 ```
 
-
 ### `GET /api/users/{userName}/`
 
 Returns the user with the specified userName.
@@ -101,7 +97,6 @@ Returns the user with the specified userName.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | userName | string | The userName of the user to retrieve. |
-
 
 #### Response
 

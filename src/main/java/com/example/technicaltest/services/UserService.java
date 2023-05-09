@@ -30,12 +30,12 @@ public class UserService {
         if (userRepository.findById(userDto.getUserName()).isPresent()) throw new UserNameAlreadyExistsException();
         if (!validator.isCountryAllowed(userDto.getCountryOfResidence())) throw new CountryNotAllowedException();
         if (!validator.isAdult(userDto.getBirthDate())) throw new AgeNotAllowedException();
-        if (userDto.getPhoneNumber() != null){
+        if (userDto.getPhoneNumber() != null) {
             if (!validator.isPhoneValid(userDto.getPhoneNumber())) throw new PhoneNotValidException();
         }
-        UserEntity userEntity=userMapper.toUserEntity(userDto);
-        UserEntity userEntityResult=userRepository.save(userEntity);
-        UserDto useDtoResult=userMapper.toUserDto(userEntityResult);
+        UserEntity userEntity = userMapper.toUserEntity(userDto);
+        UserEntity userEntityResult = userRepository.save(userEntity);
+        UserDto useDtoResult = userMapper.toUserDto(userEntityResult);
         return useDtoResult;
     }
 
@@ -48,8 +48,8 @@ public class UserService {
     public UserDto getUserByUserName(String userName) {
         Optional<UserEntity> userEntity = userRepository.findById(userName);
         if (!userEntity.isPresent()) throw new UserNotFoundException();
-        UserDto userDto=userMapper.toUserDto(userEntity.get());
-        return userDto ;
+        UserDto userDto = userMapper.toUserDto(userEntity.get());
+        return userDto;
     }
 }
 

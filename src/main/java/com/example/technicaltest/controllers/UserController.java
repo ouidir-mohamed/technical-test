@@ -1,7 +1,6 @@
 package com.example.technicaltest.controllers;
 
 import com.example.technicaltest.dto.UserDto;
-import com.example.technicaltest.entities.UserEntity;
 import com.example.technicaltest.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
