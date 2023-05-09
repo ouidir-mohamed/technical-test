@@ -78,10 +78,7 @@ Registers a new user
 {
     "userName": "mohamed01",
     "birthDate": "2004-02-09",
-    "countryOfResidence": {
-        "code": "FR",
-        "name": "France"
-    },
+    "countryOfResidence": "France",
     "phoneNumber": "0606060606",
     "gender": "MALE"
 }
@@ -105,10 +102,7 @@ Returns the user with the specified userName.
 {
   "userName": "mohamed01",
   "birthDate": "2004-02-09",
-  "countryOfResidence": {
-    "code": "FR",
-    "name": "France"
-  },
+  "countryOfResidence": "France",
   "phoneNumber": "0606060606",
   "gender": "MALE"
 }
