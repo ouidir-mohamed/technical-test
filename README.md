@@ -3,7 +3,6 @@
 This is s Spring boot project that exposes 3 services:
 - one that allows to register a user.
 - one that displays the details of a registered user.
-- one that displays all countries with their codes.
 
 
 ## Table of Contents
@@ -45,40 +44,6 @@ To run tests for this project, execute the following command in your terminal: `
 
 ## Endpoints
 
-### `GET /api/countries/`
-
-Returns a list of all countries with their codes
-
-#### Parameters
-None
-#### Response
-
-```json
-
-[
-    {
-        "code": "AF",
-        "name": "Afghanistan"
-    },
-    
-    {
-        "code": "AL",
-        "name": "Albania"
-    },
-    
-    {
-        "code": "DZ",
-        "name": "Algeria"
-    },
-    
-    {
-        "code": "AS",
-        "name": "American Samoa"
-    }
-   
-]
-
-```
 
 ### `POST /api/users/`
 
@@ -89,10 +54,10 @@ Registers a new user
 | Name | Type | Description 
 | -------- | ---------- | ------------
 | userName | string | The user name. |
-| countryOfResidence | Country | The user's country of residence. |
+| countryOfResidence | String | The user's country of residence. |
 | birthDate | date | The user's birth date with "YYYY-MM-DD" format . |
 | phoneNumber | string | The user's phone number (Optional) . |
-| gender | enum |  the user's gender MALE or FEMALE . |
+| gender | enum |  the user's gender MALE or FEMALE (Optional) . |
 
 #### Request Body
 
