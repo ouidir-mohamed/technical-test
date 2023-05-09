@@ -11,6 +11,9 @@ import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
+/**
+ * The class that handles crud operations for UserEntity
+ */
 @Service
 public class UserService {
     @Autowired
