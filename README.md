@@ -1,6 +1,6 @@
 # Technical Test
 
-This is s Spring boot project that exposes 3 services:
+This is s Spring boot project that exposes 2 services:
 
 - one that allows to register a user.
 - one that displays the details of a registered user.
