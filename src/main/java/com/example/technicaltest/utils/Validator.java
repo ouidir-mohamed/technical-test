@@ -15,11 +15,11 @@ public class Validator {
     /**
      * Checks if a country code is allowed to be registered.
      *
-     * @param countryCode The country code
+     * @param countryOfResidence The country of residence
      * @return true or false
      */
-    public boolean isCountryAllowed(String countryCode) {
-        return countryCode.equals("FR");
+    public boolean isCountryAllowed(String countryOfResidence) {
+        return countryOfResidence.equals("France");
     }
 
     /**

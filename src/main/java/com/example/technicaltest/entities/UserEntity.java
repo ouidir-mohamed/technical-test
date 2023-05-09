@@ -12,14 +12,12 @@ import java.sql.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "user")
-public class User {
+public class UserEntity {
     @Id
     private String userName;
     @Column(nullable = false)
     private Date birthDate;
-    @ManyToOne
-    @JoinColumn(name = "country_code")
-    private Country countryOfResidence;
+    private String countryOfResidence;
     private String phoneNumber;
     @Enumerated(EnumType.ORDINAL)
     private Gender gender;

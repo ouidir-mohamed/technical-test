@@ -27,8 +27,8 @@ public class ValidatorsTest {
 
     @Test
     public void testIsCountryAllowed() throws Exception {
-        Assert.assertTrue(validator.isCountryAllowed("FR"));
-        Assert.assertFalse(validator.isCountryAllowed("GB"));
+        Assert.assertTrue(validator.isCountryAllowed("France"));
+        Assert.assertFalse(validator.isCountryAllowed("United Kingdom"));
     }
 
     @Test
